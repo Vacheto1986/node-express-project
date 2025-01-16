@@ -25,8 +25,14 @@ app.get('/create', (req, res) => {
     res.render('create')
 })
 
+app.get('/search', (req, res) => {
+    res.render('search')
+})
+
 app.get('*', (req, res) => {
     res.render('404');
 })
+
+
 
 app.listen(5000, () => console.log('Server is listening on http"//localhost:5000...'));
