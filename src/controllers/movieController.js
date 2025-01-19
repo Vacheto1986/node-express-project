@@ -4,7 +4,12 @@ import movieService from "../services/movieService.js";
 const movieController = Router();
 
 movieController.get('/search', (req, res) => {
-    const movies = movieService.getAll();
+    // console.log(req.params); Data comes from URL parameters defined in the route path
+    // console.log(req.body);   Data comes from the request body.
+    // console.log(req.query);  Data comes from query string parameters in the URL
+
+    const filter = req.query;
+    const movies = movieService.getAll(filter);
 
     res.render('search', { movies })
 })
