@@ -1,6 +1,6 @@
 export default [
     {
-        id: '1',
+        id: 'jj4cb44f-a4b4-4fdb-bf24-efc237bdc39c',
         director: 'Jaume Collet-Serra',
         year: '2021',
         title: 'Jungle Cruise',
@@ -10,7 +10,7 @@ export default [
         imageUrl: '/static/img/jungle-cruise.jpeg'
     },
     {
-        id: '2',
+        id: 'yh4cb44f-a4b4-4fdb-bf24-efc237bdc39b',
         director: 'Zack Snyder',
         year: '2013',
         category: 'Movie',
@@ -20,13 +20,14 @@ export default [
         imageUrl: 'https://i.redd.it/bt3mx52vyl591.jpg'
     },
     {
-        id: '3',
-        director: 'Anthony Russo, Joe Russo, Joss Whedon',
-        year: '2019',
-        category: 'Movie',
-        title: 'Avengers',
+        id: 'aa4cb44f-a4b4-4fdb-bf24-efc237bdc39b',
+        title: 'Avengers: Endgame',
+        category: 'movie',
         genre: 'Superhero, Sci-Fi',
-        description: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.',
-        imageUrl: 'https://res.cloudinary.com/jerrick/image/upload/v1569958025/5d93a8896f3dfe001ea64e94.jpg'
-    }
+        director: 'Anthony Russo, Joe Russo',
+        year: '2019',
+        imageUrl: 'https://res.cloudinary.com/jerrick/image/upload/v1569958025/5d93a8896f3dfe001ea64e94.jpg',   
+        rating: '8.4',
+        description: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.'
+      }
 ]
