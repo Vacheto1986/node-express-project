@@ -1,26 +1,27 @@
+import Movie from "../models/Movie.js";
 import movies from "../movies.js";
 import { v4 as uuid } from 'uuid';
 
 export default {
-    
-    getAll(filter = {}) {
-        let result = movies;
 
-        if(filter.search) {
-            result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()))
-        };
-        if(filter.genre) {
-            result = result.filter(movie => movie.genre.toLowerCase().includes(filter.genre));
-        };
-        if (filter.year){
-            result = result.filter(movie => movie.year === filter.year);
-        }
+    getAll(filter = {}) {
+        let result = Movie.find({});
+
+        // if(filter.search) {
+        //     result = result.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()))
+        // };
+        // if(filter.genre) {
+        //     result = result.filter(movie => movie.genre.toLowerCase().includes(filter.genre));
+        // };
+        // if (filter.year){
+        //     result = result.filter(movie => movie.year === filter.year);
+        // }
         return result;
     },
 
-    findMovie(movieId) {
+    getOneMovie(movieId) {
 
-        const result = movies.find(movie => movie.id === movieId);
+        const result = Movie.findById(movieId);
 
         return result;
     },
@@ -32,7 +33,7 @@ export default {
             id: newId,
             ...movieData
         });
- 
+
         return newId;
     }
 }

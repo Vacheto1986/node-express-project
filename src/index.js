@@ -7,7 +7,7 @@ const app = express();
 
 //db configuration
 try {
-    const uri = 'mongodb://localhost:27017/magic-movies'
+    const uri = 'mongodb://127.0.0.1:27017/magic-movies'
     await mongoose.connect(uri);
 
     console.log('DB connected !!!');
@@ -18,7 +18,10 @@ try {
 
 //handlebars configuration
 app.engine('hbs', handlebars.engine({
-    extname: 'hbs'
+    extname: 'hbs',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true
+    }
 }));
 app.set('view engine', 'hbs');
 app.set('views', 'src/views')
@@ -29,4 +32,6 @@ app.use('/static', express.static('src/public'));
 app.use(express.urlencoded({ extended: false })); //teach express to parse from data
 app.use(routes);
 
+
+//server start
 app.listen(5000, () => console.log('Server is listening on http://localhost:5000...'));
