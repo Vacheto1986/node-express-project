@@ -24,7 +24,7 @@ export default {
 
         return result;
     },
-    
+
     create(movieData) {
         const newId = uuid();
 
@@ -32,7 +32,7 @@ export default {
             id: newId,
             ...movieData
         });
-
+ 
         return newId;
     }
 }
