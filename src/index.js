@@ -1,37 +1,36 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
-import routes from './routes.js';
 import mongoose from 'mongoose';
+// import 'dotenv/config';
+
+import routes from './routes.js';
+import showRatingHelper from './helpers/rating-helper.js';
 
 const app = express();
 
-//db configuration
-try {
-    const uri = 'mongodb://127.0.0.1:27017/magic-movies'
-    await mongoose.connect(uri);
+// db configuration
+const url = 'mongodb://127.0.0.1:27017/'
+mongoose.connect(url, { dbName: 'magic-movies' });
 
-    console.log('DB connected !!!');
-    
-} catch (error) {
-    console.error(error.message)
-}
-
-//handlebars configuration
+// handlebars configuration
 app.engine('hbs', handlebars.engine({
     extname: 'hbs',
     runtimeOptions: {
-        allowProtoPropertiesByDefault: true
+        allowProtoPropertiesByDefault: true,
+    },
+    helpers: {
+        showRating: showRatingHelper,
     }
 }));
 app.set('view engine', 'hbs');
-app.set('views', 'src/views')
+app.set('views', './src/views');
 
-
-//express configuration
+// express configuration
 app.use('/static', express.static('src/public'));
-app.use(express.urlencoded({ extended: false })); //teach express to parse from data
+app.use(express.urlencoded({ extended: false })); // Learn express to parse form data
+
+// setup routes
 app.use(routes);
 
-
-//server start
-app.listen(5000, () => console.log('Server is listening on http://localhost:5000...'));
+// start server
+app.listen(5001, () => console.log('Server is listening on http://localhost:5001...'));
