@@ -10,7 +10,9 @@ const app = express();
 
 // db configuration
 const url = 'mongodb://127.0.0.1:27017/'
-mongoose.connect(url, { dbName: 'magic-movies' });
+mongoose.connect(url, { dbName: 'magic-movies' })
+    .then(() => console.log('DB Connected'))
+    .catch((err) => console.log('DB Failed'))
 
 // handlebars configuration
 app.engine('hbs', handlebars.engine({
