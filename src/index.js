@@ -2,7 +2,7 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 // import 'dotenv/config';
-
+import cookieParser from 'cookie-parser';
 import routes from './routes.js';
 import showRatingHelper from './helpers/rating-helper.js';
 
@@ -30,6 +30,7 @@ app.set('views', './src/views');
 // express configuration
 app.use('/static', express.static('src/public'));
 app.use(express.urlencoded({ extended: false })); // Learn express to parse form data
+app.use(cookieParser());
 
 // setup routes
 app.use(routes);
