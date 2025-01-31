@@ -6,6 +6,7 @@ const userSchema = new Schema({
     password: String
 });
 
+//HASHING THE PASSWORD BEFORE DB UPDATE
 userSchema.pre('save', async function() {
     this.password = await bcrypt.hash(this.password, 10);
 })

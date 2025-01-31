@@ -12,8 +12,12 @@ authController.post('/register', async (req, res) => {
     console.log(userData);
 
     await authService.register(userData);
-    
+
     res.redirect('/auth/login')
+});
+
+authController.get('/login', (req, res) => {
+    res.render('auth/login', { title: 'Login Page' })
 })
 
 export default authController;
