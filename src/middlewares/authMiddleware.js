@@ -8,7 +8,7 @@ export const authMiddleware = (req, res, next) => {
 
     if (!token) {
         //No token = Guest. guest can keep browsing the app
-        next();
+        return next();
     }
 
     //Validate token
@@ -21,6 +21,7 @@ export const authMiddleware = (req, res, next) => {
 
         next();
     } catch (err) {
-
+        res.clearCookie('authCookie');
+        res.redirect('/auth/login');
     }
-}
+};
