@@ -17,13 +17,15 @@ movieController.get('/create', (req, res) => {
 
 movieController.post('/create', async (req, res) => {
     const newMovie = req.body;
-
+    
     await movieService.create(newMovie);
 
     res.redirect('/');
 });
 
 movieController.get('/:movieId/details', async (req, res) => {
+    // console.log(req.user);
+
     const movieId = req.params.movieId;
     const movie = await movieService.getOneWithCasts(movieId);
     // const casts = await castService.getAll(movie.casts);
